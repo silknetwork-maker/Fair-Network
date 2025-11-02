@@ -11,7 +11,7 @@ import {
 } from '@/components/ui/sheet';
 import { Separator } from '@/components/ui/separator';
 import { Button } from '@/components/ui/button';
-import { ShieldCheck, Lock, LogOut, Upload, CheckCircle, XCircle, AlertCircle, Edit, FileText, Info } from 'lucide-react';
+import { ShieldCheck, Lock, LogOut, Upload, CheckCircle, XCircle, AlertCircle, Edit, FileText, Info, BookText } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { useToast } from '@/hooks/use-toast';
 import { Alert, AlertDescription, AlertTitle } from './ui/alert';
@@ -100,6 +100,83 @@ const PrivacyPolicyDialog = () => (
   </Dialog>
 );
 
+const TermsAndConditionsDialog = () => (
+    <Dialog>
+      <DialogTrigger asChild>
+        <Button variant="ghost" className="w-full justify-start gap-3 text-sm font-medium p-4 h-auto text-black bg-gray-100 rounded-lg hover:bg-gray-200">
+          <BookText className="h-4 w-4 text-gray-500" />
+          Terms & Conditions
+        </Button>
+      </DialogTrigger>
+      <DialogContent className="max-w-2xl bg-white">
+        <DialogHeader>
+          <DialogTitle className="text-black">Terms & Conditions</DialogTitle>
+          <DialogDescription>Last updated: {new Date().toLocaleDateString()}</DialogDescription>
+        </DialogHeader>
+        <ScrollArea className="h-[60vh] pr-6">
+          <div className="text-sm text-gray-700 space-y-4">
+            <p>Welcome to Fair Network. By accessing or using our website (fairnetwork.cloud), you agree to comply with the following terms and conditions:</p>
+            
+            <div>
+              <h3 className="font-semibold text-lg text-black mb-2">1. Eligibility</h3>
+              <p>You must be at least 18 years old or have parental permission to use our platform.</p>
+            </div>
+
+            <div>
+              <h3 className="font-semibold text-lg text-black mb-2">2. Account Responsibility</h3>
+              <ul className="list-disc list-inside space-y-1 pl-4">
+                <li>You are responsible for maintaining the security of your account.</li>
+                <li>Any activity under your account will be considered your responsibility.</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="font-semibold text-lg text-black mb-2">3. Fair Use</h3>
+               <ul className="list-disc list-inside space-y-1 pl-4">
+                <li>You may not use bots, scripts, or automated tools to perform mining or referral activities.</li>
+                <li>Violation may lead to suspension or permanent ban.</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="font-semibold text-lg text-black mb-2">4. KYC and Verification</h3>
+              <p>Certain actions (such as withdrawals or higher-level rewards) may require KYC verification.</p>
+            </div>
+
+            <div>
+              <h3 className="font-semibold text-lg text-black mb-2">5. Rewards and Airdrops</h3>
+              <ul className="list-disc list-inside space-y-1 pl-4">
+                <li>Rewards are subject to verification and may change according to platform updates.</li>
+                <li>The team reserves the right to adjust, pause, or modify the reward system at any time.</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="font-semibold text-lg text-black mb-2">6. Intellectual Property</h3>
+              <p>All content, logos, and branding belong to Fair Network.</p>
+            </div>
+            
+            <div>
+              <h3 className="font-semibold text-lg text-black mb-2">7. Termination</h3>
+              <p>We reserve the right to terminate or restrict access for any user found violating these terms.</p>
+            </div>
+
+            <div>
+              <h3 className="font-semibold text-lg text-black mb-2">8. Limitation of Liability</h3>
+              <p>Fair Network is not responsible for any financial loss, system errors, or misuse of user accounts.</p>
+            </div>
+
+            <div>
+              <h3 className="font-semibold text-lg text-black mb-2">9. Updates</h3>
+              <p>We may update these terms at any time. Continued use of the site means you accept any new terms.</p>
+            </div>
+            
+          </div>
+        </ScrollArea>
+      </DialogContent>
+    </Dialog>
+);
+
 const LitePaperDialog = () => (
     <Dialog>
       <DialogTrigger asChild>
@@ -128,7 +205,7 @@ const LitePaperDialog = () => (
             <div>
               <h3 className="font-semibold text-xl text-black mb-2">Phase 1: Launch & Mining Platform</h3>
               <p className='mb-3'>
-                  In the first phase, Fair Network has launched a mining-based website that allows users to participate and earn airdrops. This initial phase focuses on building a strong and active user base that will form the foundation of the Fair Network ecosystem.
+                  Fair Network has launched a mining-based website that allows users to participate and earn airdrops. This initial phase focuses on building a strong and active user base that will form the foundation of the Fair Network ecosystem.
               </p>
               <ul className="space-y-2">
                 <li>✅ Website live with mining & reward system</li>
@@ -463,6 +540,7 @@ export function ProfileDrawer({ children }: { children: React.ReactNode }) {
                 <LitePaperDialog />
                 <AboutDialog />
                 <PrivacyPolicyDialog />
+                <TermsAndConditionsDialog />
             </div>
 
         </div>
@@ -477,3 +555,5 @@ export function ProfileDrawer({ children }: { children: React.ReactNode }) {
     </Sheet>
   );
 }
+
+    
